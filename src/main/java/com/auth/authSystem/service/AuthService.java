@@ -5,6 +5,8 @@ import com.auth.authSystem.repository.AuthRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AuthService {
 
@@ -16,4 +18,12 @@ public class AuthService {
         return "Usuário cadastrado";
     }
 
+    public String login(String user, String senha) {
+        Optional<User> reqUser = authRepository.findByUserAndSenha(user, senha);
+
+        if (reqUser.isPresent()) {
+            return "Login feito com sucesso";
+        }
+        return "Acesso negado";
+    }
 }
