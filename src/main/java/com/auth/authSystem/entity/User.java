@@ -3,7 +3,7 @@ package com.auth.authSystem.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "login")
+@Table(name = "usuarios")
 public class User {
 
     @Id
